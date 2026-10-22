@@ -1,0 +1,10 @@
+apiVersion: 1
+providers:
+  - name: Elasticsearch demo
+    orgId: 1
+    folder: AI Operations Demo
+    type: file
+    disableDeletion: true
+    editable: false
+    options:
+      path: /var/lib/grafana/dashboards

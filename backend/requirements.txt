@@ -1,0 +1,9 @@
+fastapi==0.119.1
+uvicorn==0.38.0
+httpx==0.28.1
+numpy==2.3.4
+agent-framework-core==1.22.0
+agent-framework-openai==1.17.0
+openai==3.36.0
+pytest==8.4.2
+pytest-asyncio==1.2.0

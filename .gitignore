@@ -1,0 +1,12 @@
+.env
+**/node_modules/
+**/dist/
+**/__pycache__/
+.pytest_cache/
+test-results/
+playwright-report/
+**/playwright/.auth/
+artifacts/*.json
+!artifacts/verification.json
+*.log
+.venv/

@@ -1,0 +1,39 @@
+{
+  "verified_at_utc": "2026-10-21T18:52:23.0743294Z",
+  "mode": "MOCK_AI",
+  "backend_tests": {
+    "passed": 16,
+    "duration_seconds": 75.959,
+    "skipped": 1,
+    "total": 17,
+    "failed": 0
+  },
+  "browser_tests": {
+    "passed": 3,
+    "duration_seconds": 53.7,
+    "framework": "@grafana/plugin-e2e with Chromium",
+    "failed": 0
+  },
+  "checks": {
+    "grafana_viewer_write_denial": "passed",
+    "typescript": "passed",
+    "webpack_production_build": "passed",
+    "eslint": "passed",
+    "live_jvm_incident_and_followup": "passed"
+  },
+  "real_ai": {
+    "reason": "No internal AI endpoint or credentials provided",
+    "status": "not_run"
+  },
+  "urls": {
+    "dashboard": "http://localhost:3000/d/elasticsearch-demo",
+    "exporter_metrics": "http://localhost:9101/metrics",
+    "backend_health": "http://localhost:8008/health",
+    "assistant": "http://localhost:3000/a/local-aiops-app/investigate",
+    "prometheus": "http://localhost:9090"
+  },
+  "screenshots": [
+    "artifacts/assistant.png",
+    "artifacts/dashboard.png"
+  ]
+}

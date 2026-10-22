@@ -1,0 +1,10 @@
+{
+  "generator": "demo.simulation.fixture",
+  "seed": "deterministic-sine-no-randomness",
+  "end_timestamp": 1760000000,
+  "step_seconds": 10,
+  "points": 181,
+  "incident_start_index": 120,
+  "scenarios": ["normal", "jvm_pressure", "search_degradation"],
+  "affected_node": "es-node-2"
+}

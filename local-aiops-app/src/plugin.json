@@ -1,0 +1,65 @@
+{
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/main/docs/sources/developers/plugins/plugin.schema.json",
+  "type": "app",
+  "name": "AI Operations Assistant",
+  "id": "local-aiops-app",
+  "autoEnabled": true,
+  "info": {
+    "keywords": ["app", "ai", "operations", "elasticsearch"],
+    "description": "Read-only, evidence-based dashboard investigations using an internal AI model.",
+    "author": { "name": "Local" },
+    "logos": { "small": "img/logo.svg", "large": "img/logo.svg" },
+    "screenshots": [],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
+  },
+  "includes": [
+    {
+      "type": "page",
+      "name": "Investigate",
+      "path": "/a/%PLUGIN_ID%/investigate",
+      "addToNav": true,
+      "defaultNav": true
+    }
+  ],
+  "routes": [
+    {
+      "path": "backend/health",
+      "method": "GET",
+      "url": "{{ .JsonData.backendUrl }}/health",
+      "reqRole": "Viewer",
+      "headers": [{ "name": "X-AI-Proxy-Key", "content": "{{ .SecureJsonData.backendKey }}" }]
+    },
+    {
+      "path": "backend/dashboards",
+      "method": "GET",
+      "url": "{{ .JsonData.backendUrl }}/dashboards",
+      "reqRole": "Viewer",
+      "headers": [{ "name": "X-AI-Proxy-Key", "content": "{{ .SecureJsonData.backendKey }}" }]
+    },
+    {
+      "path": "backend/context",
+      "method": "POST",
+      "url": "{{ .JsonData.backendUrl }}/context",
+      "reqRole": "Viewer",
+      "headers": [{ "name": "X-AI-Proxy-Key", "content": "{{ .SecureJsonData.backendKey }}" }]
+    },
+    {
+      "path": "backend/chat",
+      "method": "POST",
+      "url": "{{ .JsonData.backendUrl }}/chat",
+      "reqRole": "Viewer",
+      "headers": [{ "name": "X-AI-Proxy-Key", "content": "{{ .SecureJsonData.backendKey }}" }]
+    }
+  ],
+  "extensions": {
+    "addedLinks": [
+      {
+        "targets": ["grafana/dashboard/panel/menu"],
+        "title": "Analyze with AI",
+        "description": "Investigate this dashboard using live metric evidence"
+      }
+    ]
+  },
+  "dependencies": { "grafanaDependency": ">=13.2.4", "plugins": [] }
+}
